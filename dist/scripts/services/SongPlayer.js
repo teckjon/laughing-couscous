@@ -33,7 +33,7 @@
           * @param {Object} song
           */
          var playSong = function (song) {
-             currentBuzzObject.stop();
+             currentBuzzObject.play();
              song.playing = true;
          };
          /**
@@ -58,11 +58,16 @@
          SongPlayer.currentSong = null;
 
          SongPlayer.play = function (song) {
+             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
              song = song || SongPlayer.currentSong;
              if (SongPlayer.currentSong !== song) {
                  setSong(song);
-                 playSong(song);
+             } else if (currentSongIndex <= 0) {
+
+                 setSong(song);
              }
+             playSong(song);
+             
          };
 
 
