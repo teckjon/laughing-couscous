@@ -68,18 +68,24 @@
           * @type {Number}
           */
          SongPlayer.currentTime = null;
+         /**
+          * @desc Sets volume
+          * @type {Number}
+          */
+         SongPlayer.volume = 80;
 
          SongPlayer.play = function (song) {
-             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            
              song = song || SongPlayer.currentSong;
+             var song = currentAlbum.songs[0];
              if (SongPlayer.currentSong !== song) {
                  setSong(song);
-             } else if (currentSongIndex <= 0) {
-
+             } else if (SongPlayer.currentSong < 0) {
+                 
                  setSong(song);
              }
              playSong(song);
-
+             
          };
 
 
@@ -132,6 +138,18 @@
                  currentBuzzObject.setTime(time);
              }
          };
+         
+         /**
+          * @function setVolume
+          * @desc Sets the volume
+          * @param {Number} time
+          */
+         SongPlayer.setVolume = function(volume) {
+             if (currentBuzzObject) {
+                 currentBuzzObject.setVolume(volume);
+             }
+             SongPlayer.volume = volume;
+         }
          return SongPlayer;
      }
 

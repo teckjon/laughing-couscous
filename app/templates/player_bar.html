@@ -25,7 +25,7 @@
             <div class="seek-control">
                  <seek-bar value="{{ playerBar.songPlayer.currentTime | timecode }}" max="{{ playerBar.songPlayer.currentSong.length | timecode }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
                 <div class="current-time"></div>
-                <div class="total-time">{{ playerBar.songPlayer.currentSong.length }}</div>
+                <div class="total-time">{{ playerBar.songPlayer.currentSong.length  | timecode }}</div>
             </div>
         </div>
         <div class="control-group volume">
