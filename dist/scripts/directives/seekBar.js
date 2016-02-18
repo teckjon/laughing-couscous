@@ -41,9 +41,9 @@
                      };
                  };
 
-                 scope.thumbstyle = function () {
+                 scope.thumbStyle = function () {
                      return {
-                         width: percentString()
+                         left: percentString()
                      };
                  };
                  
